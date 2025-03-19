@@ -4,8 +4,8 @@ import streamlit as st
 import pandas as pd
 import duckdb as db
 
-
 st.write("SQL space repetition system")
+
 
 csv='''
 beverage, price
@@ -31,6 +31,15 @@ CROSS JOIN food
 '''
 
 solution=db.sql(answer)
+
+with st.sidebar:
+    option = st.selectbox(
+        "What would you like to review ?",
+        ("Join", "Groupby", "Window function"),
+        index=None,
+        placeholder="Select a theme",
+    )
+    st.write("You selected :", option)
 
 st.header('enter your code:')
 query=st.text_area(label="votre code sql ici", key="user input")
