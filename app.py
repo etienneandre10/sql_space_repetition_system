@@ -1,11 +1,11 @@
 # pylint: disable=missing-module-docstring
 
-import os
 import logging
-import duckdb
-import streamlit as st
+import os
 from datetime import date, timedelta
 
+import duckdb
+import streamlit as st
 
 if "data" not in os.listdir():
     print("creating folder data")
@@ -15,7 +15,7 @@ if "data" not in os.listdir():
 
 if "exercises_sql_tables.duckdb" not in os.listdir("data"):
     exec(open("init_db.py").read())
-    # subprocess.run(["python", "init_db.py"])
+# subprocess.run(["python", "init_db.py"])
 
 con = duckdb.connect(database="data/exercises_sql_tables.duckdb", read_only=False)
 
@@ -35,7 +35,7 @@ def check_users_solution(user_query: str) -> None:
         if result.compare(solution_df).shape == (0, 0):
             st.write("Correct !")
             st.balloons()
-    except KeyError as e:
+    except KeyError:
         st.write("Some columns are missing")
     n_lines_difference = result.shape[0] - solution_df.shape[0]
     if n_lines_difference != 0:
@@ -73,7 +73,7 @@ with st.sidebar:
 
 st.header("enter your code:")
 form = st.form("my_form")
-query = form.text_area(label="votre code SQL ici", key="user_input")
+query = form.text_area(label="Votre code SQL ici", key="user_input")
 form.form_submit_button("Submit")
 
 if query:
