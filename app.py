@@ -50,7 +50,8 @@ if query:
 
     try:
         result=result[solution_df.columns]
-        st.dataframe.compare(solution_df)
+        st.dataframe(result.compare(solution_df))
+
     except KeyError as e:
         st.write("Some columns are missing")
 
