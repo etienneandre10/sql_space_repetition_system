@@ -49,6 +49,7 @@ if query:
     st.dataframe(result)
 
     if len(result.columns)!=len(solution.columns)
+        solution.columns
     ): #replace with try result = result[solution.columns]
     st.write("Some columns are missing")
 
