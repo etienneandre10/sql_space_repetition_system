@@ -51,7 +51,7 @@ if query:
     if len(result.columns)!=len(solution.columns)
         solution.columns
     ): #replace with try result = result[solution.columns]
-    st.write("Some columns are missing")
+        st.write("Some columns are missing")
 
     n_lines_differences=result.shape[0] - solution.shape[0]
     if n_lines_differences !=0:
