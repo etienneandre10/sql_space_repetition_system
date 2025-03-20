@@ -48,8 +48,7 @@ if query:
     result=db.sql(query)
     st.dataframe(result)
 
-    if len(result.columns)!=len(solution.columns)
-        solution.columns
+    if len(result.columns)!=len(solution.columns
     ): #replace with try result = result[solution.columns]
         st.write("Some columns are missing")
 
