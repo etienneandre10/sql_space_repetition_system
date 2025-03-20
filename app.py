@@ -48,8 +48,6 @@ if query:
     result=db.sql(query)
     st.dataframe(result)
 
-    if len(result.columns)!=len(solution_df.columns):
-        st.write("Some columns are missing")
     try:
         result=result[solution_df.columns]
         st.dataframe.compare(solution_df)
