@@ -1,5 +1,4 @@
 # pylint: disable=missing-module-docstring
-
 import logging
 import os
 from datetime import date, timedelta
