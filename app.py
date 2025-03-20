@@ -48,6 +48,15 @@ if query:
     result=db.sql(query)
     st.dataframe(result)
 
+    if len(result.columns)!=len(solution.columns)
+    ): #replace with try result = result[solution.columns]
+    st.write("Some columns are missing")
+
+    n_lines_differences=result.shape[0] - solution.shape[0]
+    if n_lines_differences !=0:
+        st.write(
+            f"result has a {n_lines_differences} lines difference with the solution"
+        )
 tab2, tab3=st.tabs(["Tables","Solutions"])
 
 with tab2:
